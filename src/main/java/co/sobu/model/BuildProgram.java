@@ -18,19 +18,19 @@ public class BuildProgram extends Program {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idBuild;
+	private int idBuild;
 
-	@JsonIgnore
+	
 	@OneToOne
 	private User buildUser;
 
 	private double actualWeight;
 
-	public Long getIdBuild() {
+	public int getIdBuild() {
 		return idBuild;
 	}
 
-	public void setIdBuild(Long idBuild) {
+	public void setIdBuild(int idBuild) {
 		this.idBuild = idBuild;
 	}
 
@@ -66,7 +66,7 @@ public class BuildProgram extends Program {
 	 * @param buildFood
 	 */
 	public BuildProgram(double kcalPerDay, double protPerDay, double fatPerDay, double carbPerDay, List<Food> food,
-			Long idBuild, User buildUser, double actualWeight) {
+			int idBuild, User buildUser, double actualWeight) {
 		super(kcalPerDay, protPerDay, fatPerDay, carbPerDay, food);
 		this.idBuild = idBuild;
 		this.buildUser = buildUser;

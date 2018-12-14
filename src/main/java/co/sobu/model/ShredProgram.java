@@ -18,9 +18,9 @@ public class ShredProgram extends Program {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idShred;
+	private int idShred;
 
-	@JsonIgnore
+	
 	@OneToOne
 	private User shredUser;
 
@@ -29,11 +29,11 @@ public class ShredProgram extends Program {
 
 
 
-	public Long getIdShred() {
+	public int getIdShred() {
 		return idShred;
 	}
 
-	public void setIdShred(Long idShred) {
+	public void setIdShred(int idShred) {
 		this.idShred = idShred;
 	}
 
@@ -71,7 +71,7 @@ public class ShredProgram extends Program {
 	 * @param actualWeight
 	 */
 	public ShredProgram(double kcalPerDay, double protPerDay, double fatPerDay, double carbPerDay, List<Food> food,
-			Long idShred, User shredUser, double actualWeight) {
+			int idShred, User shredUser, double actualWeight) {
 		super(kcalPerDay, protPerDay, fatPerDay, carbPerDay, food);
 		this.idShred = idShred;
 		this.shredUser = shredUser;

@@ -22,19 +22,19 @@ public class User{
 	@Column
 	private int id;
 
-	@JsonIgnore
+	
 	@OneToOne(mappedBy = "shredUser", cascade=CascadeType.REMOVE)
 	private ShredProgram shred;
 
-	@JsonIgnore
+	
 	@OneToOne(mappedBy = "buildUser", cascade=CascadeType.REMOVE)
 	private BuildProgram build;
 
-	@JsonIgnore
+	
 	@OneToOne(mappedBy = "cetoUser", cascade=CascadeType.REMOVE)
 	private CetogeneDiet ceto;
 
-	@JsonIgnore
+	
 	@OneToOne(mappedBy = "paleoUser", cascade=CascadeType.REMOVE)
 	private PaleoDiet paleo;
 	@Column

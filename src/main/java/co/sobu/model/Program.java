@@ -2,14 +2,20 @@ package co.sobu.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.OneToMany;
 
 public class Program {
 	
+	@Column
 	private double kcalPerDay;
+	@Column
 	private double protPerDay;
+	@Column
 	private double fatPerDay;
+	@Column
 	private double carbPerDay;
+	
 	
 	@OneToMany
 	private List<Food> food;

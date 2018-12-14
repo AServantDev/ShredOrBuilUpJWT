@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +34,7 @@ public class UserController {
 	
 	@GetMapping("/allUser")
 		public List<User> allUser(){
+	
 			return (List<User>) userService.findAll();
 		}
 	
@@ -45,5 +47,22 @@ public class UserController {
 		return ResponseEntity.ok().body(user);
 	}
 	
+	@GetMapping("/getUserByUsername/{username}")
+	public ResponseEntity<User> getUserByUsername(@PathVariable(value="username")String username){
+		
+		User user = userService.findOne(username);
+		if(user == null)
+			 return ResponseEntity.notFound().build();
+		return ResponseEntity.ok().body(user);
+	}
+	
+	@DeleteMapping("/deleteUser/{id}")
+	public void deleteUser(@PathVariable(value="id") int id) {
+		userService.delete(id);
+	}
+	
+		
+	}
+	
 
-}
+
