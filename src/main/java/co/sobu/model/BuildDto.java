@@ -4,7 +4,7 @@ public class BuildDto {
 
 	private int idBuild;
 
-	private User buildUser;
+	private int buildUser;
 
 	private double actualWeight;
 
@@ -16,11 +16,11 @@ public class BuildDto {
 		this.idBuild = idBuild;
 	}
 
-	public User getBuildUser() {
+	public int getBuildUser() {
 		return buildUser;
 	}
 
-	public void setBuildUser(User buildUser) {
+	public void setBuildUser(int buildUser) {
 		this.buildUser = buildUser;
 	}
 

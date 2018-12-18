@@ -35,27 +35,35 @@ public class ProgramController {
 	@PostMapping("/newShred/{id}")
     public ApiResponse<ShredProgram> saveShred(@PathVariable(value="id") int id){
 		
-        return new ApiResponse<>(HttpStatus.OK.value(), "User saved successfully.",shredServ.save(id));
+        return new ApiResponse<>(HttpStatus.OK.value(), "Shred Program saved successfully.",shredServ.save(id));
     }
 	
 	@PostMapping("/newBuild/{id}")
     public ApiResponse<BuildProgram> saveBuild(@PathVariable(value="id") int id){
 		
-        return new ApiResponse<>(HttpStatus.OK.value(), "User saved successfully.",buildServ.save(id));
+        return new ApiResponse<>(HttpStatus.OK.value(), "Build program saved successfully.",buildServ.save(id));
     }
 	
 	@GetMapping("/getShred/{id}")
-	public ApiResponse<ShredProgram> getShred(@PathVariable(value="id") int id){
-		
-		return new ApiResponse<>(HttpStatus.OK.value(), "User saved successfully.",shredServ.findByIdUser(id));
+	public ResponseEntity<ShredProgram> getShred(@PathVariable(value="id") int id){
+		System.out.println(id);
+		ShredProgram shred = shredServ.findByIdShred(id);
+		if(shred == null)
+			 return ResponseEntity.notFound().build();
+		return ResponseEntity.ok().body(shred);
 	}
 	
 	@GetMapping("/getBuild/{id}")
-	public ApiResponse<BuildProgram> getBuild(@PathVariable(value="id") int id){
+	public ResponseEntity<BuildProgram> getBuild(@PathVariable(value="id") int id){
 		
-		return new ApiResponse<>(HttpStatus.OK.value(), "User saved successfully.",buildServ.findByIdUser(id));
+		BuildProgram build = buildServ.findByIdBuild(id);
+		if(build == null)
+			 return ResponseEntity.notFound().build();
+		return ResponseEntity.ok().body(build);
+	}
+		
 	}
 	
 	
 
-}
+			

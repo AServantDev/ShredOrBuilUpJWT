@@ -9,6 +9,6 @@ public interface BuildService {
 	BuildProgram save(int IdUser);
     List<BuildProgram> findAll();
     void delete(int idBuild);
-	BuildProgram findByIdUser(int id);
+	BuildProgram findByIdBuild(int id);
 
 }

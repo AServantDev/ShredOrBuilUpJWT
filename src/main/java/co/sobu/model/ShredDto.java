@@ -6,7 +6,7 @@ public class ShredDto extends Program {
 
 	private int idShred;
 	
-	private User shredUser;
+	private int shredUser;
 
 	private double actualWeight;
 
@@ -18,11 +18,11 @@ public class ShredDto extends Program {
 		this.idShred = idShred;
 	}
 
-	public User getShredUser() {
+	public int getShredUser() {
 		return shredUser;
 	}
 
-	public void setShredUser(User shredUser) {
+	public void setShredUser(int shredUser) {
 		this.shredUser = shredUser;
 	}
 

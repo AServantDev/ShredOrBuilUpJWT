@@ -43,10 +43,10 @@ public class ShredServiceImpl implements ShredService {
 		
 		ShredProgram shred = new ShredProgram();
 
-		shredDao.save(shred);
+		
 		
 		User user = userServ.findById(idUser);
-		shred.setShredUser(user);
+		shred.setShredUser(user.getId());
 		shred.setKcalPerDay(user.getKcalPerDay() - 500);
 		shred.setActualWeight(user.getWeight());
 		shred.setProtPerDay(user.getProtPerDay());
@@ -68,5 +68,11 @@ public class ShredServiceImpl implements ShredService {
 	public ShredProgram findByIdUser(int idUser) {
 		User user = userServ.findById(idUser);
 		return shredDao.findByShredUser(user);
+	}
+	@Override
+	public ShredProgram findByIdShred(int idShred) {
+		System.out.println(idShred);
+		
+		return shredDao.findByIdShred(idShred);
 	}
 }

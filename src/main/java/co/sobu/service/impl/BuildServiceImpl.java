@@ -45,7 +45,7 @@ public class BuildServiceImpl implements BuildService{
 		buildDao.save(shred);
 		
 		User user = userServ.findById(idUser);
-		shred.setBuildUser(user);
+		shred.setBuildUser(idUser);
 		shred.setKcalPerDay(user.getKcalPerDay() + 300);
 		shred.setActualWeight(user.getWeight());
 		shred.setProtPerDay(user.getProtPerDay());
@@ -64,10 +64,12 @@ public class BuildServiceImpl implements BuildService{
 
 	}
 	
+	
+	
 	@Override
-	public BuildProgram findByIdUser(int idUser) {
-		User user = userServ.findById(idUser);
-		return buildDao.findByBuildUser(user);
+	public BuildProgram findByIdBuild(int idBuild) {
+		
+		return buildDao.findByIdBuild(idBuild);
 	}
 
 

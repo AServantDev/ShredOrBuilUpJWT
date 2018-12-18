@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,11 +24,13 @@ public class User{
 	private int id;
 
 	
-	@OneToOne(mappedBy = "shredUser", cascade=CascadeType.REMOVE)
+	@OneToOne(cascade=CascadeType.REMOVE)
+	@JoinColumn(name="idShred")
 	private ShredProgram shred;
 
 	
-	@OneToOne(mappedBy = "buildUser", cascade=CascadeType.REMOVE)
+	@OneToOne(cascade=CascadeType.REMOVE)
+	@JoinColumn(name="idBuild")
 	private BuildProgram build;
 
 	

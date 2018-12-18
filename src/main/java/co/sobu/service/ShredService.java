@@ -12,5 +12,7 @@ public interface ShredService {
     List<ShredProgram> findAll();
     void delete(int idShred);
 	ShredProgram  findByIdUser(int id);
+	
+	ShredProgram findByIdShred(int id);
 
 }

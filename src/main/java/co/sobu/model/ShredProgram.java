@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -21,8 +22,9 @@ public class ShredProgram extends Program {
 	private int idShred;
 
 	
-	@OneToOne
-	private User shredUser;
+	
+	@JoinColumn(name="User_id")
+	private int shredUser;
 
 	private double actualWeight;
 	
@@ -37,11 +39,11 @@ public class ShredProgram extends Program {
 		this.idShred = idShred;
 	}
 
-	public User getShredUser() {
+	public int getShredUser() {
 		return shredUser;
 	}
 
-	public void setShredUser(User shredUser) {
+	public void setShredUser(int shredUser) {
 		this.shredUser = shredUser;
 	}
 
@@ -71,7 +73,7 @@ public class ShredProgram extends Program {
 	 * @param actualWeight
 	 */
 	public ShredProgram(double kcalPerDay, double protPerDay, double fatPerDay, double carbPerDay, List<Food> food,
-			int idShred, User shredUser, double actualWeight) {
+			int idShred, int shredUser, double actualWeight) {
 		super(kcalPerDay, protPerDay, fatPerDay, carbPerDay, food);
 		this.idShred = idShred;
 		this.shredUser = shredUser;

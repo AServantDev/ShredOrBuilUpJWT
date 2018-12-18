@@ -3,9 +3,11 @@ package co.sobu.model;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 
-public class Program {
+@MappedSuperclass
+public abstract class Program {
 	
 	@Column
 	private double kcalPerDay;
