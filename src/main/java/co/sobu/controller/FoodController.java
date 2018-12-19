@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +36,14 @@ public class FoodController {
 	public List<Food> getAllFood(){
 		return (List<Food>) foodServ.findAll();
 		
+	}
+	
+	@GetMapping("getFood/{id}")
+	public ResponseEntity<Food> getFood(@PathVariable(value="id") int id){
+		Food food = foodServ.findById(id);
+		if(food == null)
+			 return ResponseEntity.notFound().build();
+		return ResponseEntity.ok().body(food);
 	}
 
 }

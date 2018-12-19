@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -18,27 +19,27 @@ public class BuildProgram extends Program {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idBuild;
+	private int idBuild;
 
-	@JsonIgnore
-	@OneToOne
-	private User buildUser;
+	
+	@JoinColumn(name="User_id")
+	private int buildUser;
 
 	private double actualWeight;
 
-	public Long getIdBuild() {
+	public int getIdBuild() {
 		return idBuild;
 	}
 
-	public void setIdBuild(Long idBuild) {
+	public void setIdBuild(int idBuild) {
 		this.idBuild = idBuild;
 	}
 
-	public User getBuildUser() {
+	public int getBuildUser() {
 		return buildUser;
 	}
 
-	public void setBuildUser(User buildUser) {
+	public void setBuildUser(int buildUser) {
 		this.buildUser = buildUser;
 	}
 
@@ -66,7 +67,7 @@ public class BuildProgram extends Program {
 	 * @param buildFood
 	 */
 	public BuildProgram(double kcalPerDay, double protPerDay, double fatPerDay, double carbPerDay, List<Food> food,
-			Long idBuild, User buildUser, double actualWeight) {
+			int idBuild, int buildUser, double actualWeight) {
 		super(kcalPerDay, protPerDay, fatPerDay, carbPerDay, food);
 		this.idBuild = idBuild;
 		this.buildUser = buildUser;

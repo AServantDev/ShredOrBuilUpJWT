@@ -14,7 +14,7 @@ public class Food {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idFood;
+	private int idFood;
 
 	private String foodName;
 	private String foodType;
@@ -27,11 +27,11 @@ public class Food {
 
 	
 
-	public Long getIdFood() {
+	public int getIdFood() {
 		return idFood;
 	}
 
-	public void setIdFood(Long idFood) {
+	public void setIdFood(int idFood) {
 		this.idFood = idFood;
 	}
 
@@ -102,7 +102,7 @@ public class Food {
 	
 	
 
-	public Food(Long idFood, String foodName, String foodType, double kcal, double proteins, double fats, double carbs,
+	public Food(int idFood, String foodName, String foodType, double kcal, double proteins, double fats, double carbs,
 			boolean paleo, boolean cetogene
 			) {
 		super();
